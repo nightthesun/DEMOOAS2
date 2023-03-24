@@ -107,6 +107,24 @@ class ComprasMovimientosController extends Controller
 		REPLACE(ISNULL(AlmMay3,0),',', '.') as stockAlmMay3,
 		REPLACE(ISNULL(AlmMay4,0),',', '.') as stockAlmMay4,
 		REPLACE(ISNULL(AlmMay5,0),',', '.') as stockAlmMay5,
+
+        REPLACE(ISNULL(AlmSucre,0),',', '.') as stockAlmSucre,
+        REPLACE(ISNULL(AlmPotosi,0),',', '.') as stockAlmPotosi,
+        REPLACE(ISNULL(AlmTarija,0),',', '.') as stockAlmTarija,
+        REPLACE(ISNULL(AlmOruro,0),',', '.') as stockAlmOruro,
+        REPLACE(ISNULL(AlmCochaba,0),',', '.') as stockAlmCochaba,
+        REPLACE(ISNULL(AlmIns1,0),',', '.') as stockAlmIns1,
+        REPLACE(ISNULL(AlmIns2,0),',', '.') as stockAlmIns2,
+        REPLACE(ISNULL(AlmIns3,0),',', '.') as stockAlmIns3,
+        REPLACE(ISNULL(AlmIns4,0),',', '.') as stockAlmIns4,
+        REPLACE(ISNULL(InsBallian,0),',', '.') as stockInsBallian,
+        REPLACE(ISNULL(InsHandal,0),',', '.') as stockInsHandal,
+        REPLACE(ISNULL(InsCalacoto,0),',', '.') as stockInsCalacoto,
+        REPLACE(ISNULL(InsMariscal,0),',', '.') as stockInsMariscal,
+        REPLACE(ISNULL(AlmKetal,0),',', '.') as stockAlmKetal,
+        REPLACE(ISNULL(AlmReserContratos,0),',', '.') as stockAlmReserContratos,
+        REPLACE(ISNULL(AlmSicoes,0),',', '.') as stockAlmSicoes,
+
 		REPLACE(ISNULL(AlmDistribuidor1,0),',', '.') as stockAlmDistri1,       
         CONVERT(varchar, ultv.intraFtra,103) as fechaultventa
         
@@ -259,13 +277,42 @@ class ComprasMovimientosController extends Controller
 			ISNULL([49],0) as 'AlmMay3',
 			ISNULL([50],0) as 'AlmMay4',
 			ISNULL([53],0) as 'AlmMay5',
+
+            ISNULL([57],0) as 'AlmSucre',
+            ISNULL([58],0) as 'AlmPotosi',	
+            ISNULL([59],0) as 'AlmTarija',
+            ISNULL([60],0) as 'AlmOruro',
+            ISNULL([61],0) as 'AlmCochaba',
+            ISNULL([8],0) as 'AlmIns1',
+            ISNULL([20],0) as 'AlmIns2',
+            ISNULL([21],0) as 'AlmIns3',
+            ISNULL([22],0) as 'AlmIns4',
+            ISNULL([31],0) as 'InsBallian',
+            ISNULL([32],0) as 'InsHandal',
+            ISNULL([33],0) as 'InsCalacoto',
+            ISNULL([34],0) as 'InsMariscal',
+            ISNULL([23],0) as 'AlmKetal',
+            ISNULL([62],0) as 'AlmReserContratos',
+            ISNULL([24],0) as 'AlmSicoes',
+
 			ISNULL([27],0) as 'AlmDistribuidor1',
-            ISNULL([73],0) as 'AlmResGeneral',	 
+            ISNULL([73],0) as 'AlmResGeneral',	
+
+
+            
             ISNULL([47],0)+ISNULL([40],0)+ISNULL([39],0)+ISNULL([46],0)+
-            ISNULL([43],0)+ISNULL([4],0)+ISNULL([13],0)+ISNULL([7],0)+
-            ISNULL([10],0)+ISNULL([6],0)+ISNULL([30],0)+ISNULL([5],0)+
-            ISNULL([29],0)+ISNULL([45],0)+
-            ISNULL([67],0)+ISNULL([68],0) 
+			ISNULL([43],0)+ISNULL([4],0)+ISNULL([13],0)+ISNULL([7],0)+
+			ISNULL([10],0)+ISNULL([6],0)+ISNULL([30],0)+ISNULL([5],0)+
+            ISNULL([67],0)+ISNULL([68],0) +
+            ISNULL([5],0)+ISNULL([29],0)+
+            ISNULL([45],0)+ISNULL([9],0)+ISNULL([48],0)+
+            ISNULL([49],0)+ISNULL([50],0)+ISNULL([53],0)+
+            ISNULL([27],0)+ISNULL([73],0)+ISNULL([57],0)+
+            ISNULL([58],0)+ISNULL([59],0)+ISNULL([60],0)+
+            ISNULL([61],0)+ISNULL([8],0)+ISNULL([20],0)+
+            ISNULL([21],0)+ISNULL([22],0)+ISNULL([31],0)+
+            ISNULL([32],0)+ISNULL([33],0)+ISNULL([34],0)+
+            ISNULL([23],0)+ISNULL([62],0)+ISNULL([24],0)
              as 'Total'
             FROM
             (
@@ -280,7 +327,8 @@ class ComprasMovimientosController extends Controller
             (
                 SUM(cant)
                 for intraCalm IN ([4],[5],[6],[7],[10],[13],
-                [29],[30],[39],[40],[43],[45],[46],[47],[67],[68],[9],[48],[49],[50],[53],[27],[73])
+                [29],[30],[39],[40],[43],[45],[46],[47],[67],[68],[9],[48],[49],[50],[53],[27],[73],
+                [57],[58],[59],[60],[61],[8],[20],[21],[22],[31],[32],[33],[34],[23],[62],[24])
             ) as ptv
         ) as stocks
         ON stocks.intrdCpro = inpro.inproCpro
