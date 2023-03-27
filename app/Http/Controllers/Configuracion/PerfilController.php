@@ -153,7 +153,7 @@ class PerfilController extends Controller
     $fecha_actual = new DateTime(date('Y-m-d'));
     $perfil = Perfil::find($id);
     if($request->registrar_dias != null) {
-      dd($perfil->user_id);
+      //dd($perfil->user_id);
       $vacacion = VacacionForm::create([
         'detalle_vacacion' => 'Llenado Por Funcionario',
         'fecha_ini' => $fecha_actual,

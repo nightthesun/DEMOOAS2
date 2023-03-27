@@ -1098,7 +1098,7 @@ class ResumenMesCostosVentasController extends Controller
       WHERE " . $alm . "
       ORDER BY inalmNomb;
       ";
-      // dd($sql_regional);
+       dd($sql_regional);
       $total_seg_regional[] = [$key['name'] => DB::connection('sqlsrv')->select(DB::raw($sql_regional))];
     }
     foreach ($retail as $key) {

@@ -223,7 +223,9 @@
             </span>
             @enderror
           </div>
-          <label for="dias_vacacion_
+
+          {{-- 
+               <label for="dias_vacacion_
           tomadas" class="col-3 col-form-label">{{ __('Registrar Dias') }}</label>
           <div class="col-md-3">
             <input id="registrar_dias" value="" type="number" class="form-control @error('registrar_dias') is-invalid @enderror" name="registrar_dias" autocomplete="registrar_dias" autofocus>
@@ -233,11 +235,13 @@
             </span>
             @enderror
           </div>
+            --}}
+       
         </div>
         <div class="mb-2 row d-flex">
           <label for="dias_vacacion" class="col-3 col-form-label">{{ __('Dias de Vacacion a la fecha') }}</label>
           <div class="col-md-3">
-            <input id="dias_vacacion_a" value="{{$perfil->dias_vacacion}}" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" disabled>
+            <input id="dias_vacacion_a" style="border: none; outset:none; background-color: white" value="{{$perfil->dias_vacacion}}" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" disabled>
             <input id="dias_vacacion" value="{{$perfil->dias_vacacion}}" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror d-none" name="dias_vacacion" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" autofocus>
             @error('dias_vacacion')
             <span class="invalid-feedback" role="alert">
@@ -248,9 +252,9 @@
         </div>
         <div class="mb-2 row d-flex">
           <label for="dias_vacacion_
-          tomadas" class="col-3 col-form-label">{{ __('Dias de Vacacion Tomadas') }}</label>
+          tomadas" class="col-3 col-form-label">{{ __('Dias de Vacacion Tomadas') }} :</label>
           <div class="col-md-3">
-            <input id="dias_vacacion_tomadas_a" value="{{ $dias_tomados[0]->suma }}" type="number" class="form-control @error('dias_vacacion_tomadas') is-invalid @enderror" autocomplete="dias_vacacion_tomadas" autofocus disabled>
+            <input id="dias_vacacion_tomadas_a" style="border: none; outset:none; background-color: white" value="{{ $dias_tomados[0]->suma }}" type="number" class="form-control @error('dias_vacacion_tomadas') is-invalid @enderror" autocomplete="dias_vacacion_tomadas" autofocus disabled>
             <input id="dias_vacacion_tomadas" value="{{ $dias_tomados[0]->suma }}" type="number" class="form-control @error('dias_vacacion_tomadas') is-invalid @enderror d-none" name="dias_vacacion_tomadas" autocomplete="dias_vacacion_tomadas" autofocus>
             @error('dias_vacacion')
             <span class="invalid-feedback" role="alert">
@@ -263,7 +267,7 @@
           <label for="dias_vacacion_
           tomadas" class="col-3 col-form-label">{{ __('Saldo Dias de Vacacion') }}</label>
           <div class="col-md-3">
-            <input id="saldo_dias_a" value="" type="number" class="form-control @error('saldo_dias') is-invalid @enderror" autocomplete="saldo_dias" disabled>
+            <input id="saldo_dias_a" style="border: none; outset:none; background-color: white" value="" type="number" class="form-control @error('saldo_dias') is-invalid @enderror" autocomplete="saldo_dias" disabled>
             <input id="saldo_dias" value="" type="number" name="saldo_dias" class="form-control @error('saldo_dias') is-invalid @enderror d-none" autocomplete="saldo_dias">
             @error('saldo_dias')
             <span class="invalid-feedback" role="alert">

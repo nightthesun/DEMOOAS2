@@ -10,7 +10,7 @@
     @csrf
     <div class="row d-flex justify-content-center">
       <div class="col-3">
-        <a href="{{ route('vacacion.index') }}" class="btn btn-danger">Volver</a>
+        <a href="{{ route('vacacion.index') }}" class="btn btn-secondary">Volver</a>
       </div>
       <div class="col-6 d-flex align-items-center justify-content-center">
         <h3 class="text-center text-primary">FORMULARIO VACACIONES</h3>
@@ -170,8 +170,8 @@
         {{ __('DIAS DE VACACION') }}
       </label>
       <div class="col-md-1">
-        <input id="dias_v" type="text" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v" value="{{ $dias_vacaciones }}" required autocomplete="dias_v">
-        <input id="dias_v_a" type="text" class="form-control @error('dias_v') is-invalid @enderror" value="{{ $dias_vacaciones }}" required autocomplete="dias_v" disabled>
+        <input id="dias_v" type="text" style="border: none;outline: none;background-color: white" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v" value="{{ $dias_vacaciones }}" required autocomplete="dias_v">
+        <input id="dias_v_a" type="text" style="border: none;outline: none;background-color: white" class="form-control @error('dias_v') is-invalid @enderror" value="{{ $dias_vacaciones }}" required autocomplete="dias_v" disabled>
         @error('dias_v')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -179,8 +179,8 @@
         @enderror
       </div>
       <div class="col-md-4">
-        <input id="dias_v_l" type="text" placeholder="Literal" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v_l" value="{{ $VacacionForm->dias_v_l }}" required autocomplete="dias_v_l">
-        <input id="dias_v_l_a" type="text" placeholder="Literal" class="form-control @error('dias_v') is-invalid @enderror" value="{{ $VacacionForm->dias_v_l }}" required autocomplete="dias_v_l" disabled>
+        <input id="dias_v_l" type="text"  style="border: none;outline: none;background-color: white" placeholder="Literal" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v_l" value="{{ $VacacionForm->dias_v_l }}" required autocomplete="dias_v_l">
+        <input id="dias_v_l_a" type="text" style="border: none;outline: none;background-color: white" placeholder="Literal" class="form-control @error('dias_v') is-invalid @enderror" value="{{ $VacacionForm->dias_v_l }}" required autocomplete="dias_v_l" disabled>
         @error('dias_v_l')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -193,8 +193,8 @@
         {{ __('DIAS TOMADOS') }}
       </label>
       <div class="col-md-1">
-        <input id="dias_tomados" name="dias_tomados" type="text" class="form-control @error('dias') is-invalid @enderror d-none" value="@if ($dias_tomados[0]->suma != 0) {{ $dias_tomados[0]->suma }} @else 0 @endif" autocomplete="dias_tomados">
-        <input id="dias_tomados_a" type="text" class="form-control @error('dias') is-invalid @enderror" value="@if ($dias_tomados[0]->suma != 0) {{ $dias_tomados[0]->suma }} @else 0 @endif" autocomplete="dias_tomados" disabled>
+        <input id="dias_tomados" style="border: none;outline: none;background-color: white"  name="dias_tomados" type="text" class="form-control @error('dias') is-invalid @enderror d-none" value="@if ($dias_tomados[0]->suma != 0) {{ $dias_tomados[0]->suma }} @else 0 @endif" autocomplete="dias_tomados">
+        <input id="dias_tomados_a"   style="border: none;outline: none;background-color: white" type="text" class="form-control @error('dias') is-invalid @enderror" value="@if ($dias_tomados[0]->suma != 0) {{ $dias_tomados[0]->suma }} @else 0 @endif" autocomplete="dias_tomados" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -202,8 +202,8 @@
         @enderror
       </div>
       <div class="col-md-4">
-        <input id="dias_tomados_l" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror d-none" name="dias_tomados" value="{{ old('dias') }}" autocomplete="dias">
-        <input id="dias_tomados_l_a" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror" name="dias_tomados" value="{{ old('dias') }}" autocomplete="dias" disabled>
+        <input id="dias_tomados_l" type="text" placeholder="Literal"  style="border: none;outline: none;background-color: white" class="form-control @error('dias') is-invalid @enderror d-none" name="dias_tomados" value="{{ old('dias') }}" autocomplete="dias">
+        <input id="dias_tomados_l_a" type="text" placeholder="Literal"  style="border: none;outline: none;background-color: white"  class="form-control @error('dias') is-invalid @enderror" name="dias_tomados" value="{{ old('dias') }}" autocomplete="dias" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -225,8 +225,8 @@
         @enderror
       </div>
       <div class="col-md-4">
-        <input id="dias_l" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror d-none" name="dias_l" value="{{ $VacacionForm->dias_l }}" required autocomplete="dias">
-        <input id="dias_l_a" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror" value="{{ $VacacionForm->dias_l }}" required autocomplete="dias" disabled>
+        <input id="dias_l" type="text"  style="border: none;outline: none;background-color: white" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror d-none" name="dias_l" value="{{ $VacacionForm->dias_l }}" required autocomplete="dias">
+        <input id="dias_l_a" type="text"   style="border: none;outline: none;background-color: white" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror" value="{{ $VacacionForm->dias_l }}" required autocomplete="dias" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -241,7 +241,7 @@
 
       <div class="col-md-1">
         <input id="saldo_dias" name="saldo_dias" type="text" class="form-control @error('dias') is-invalid @enderror d-none" value="{{ $VacacionForm->saldo_dias }}" required autocomplete="saldo_dias">
-        <input id="saldo_dias_a" type="text" class="form-control @error('dias') is-invalid @enderror" value="{{ $VacacionForm->saldo_dias }}" required autocomplete="saldo_dias" disabled>
+        <input id="saldo_dias_a" type="text"  style="border: none;outline: none;background-color: white"  class="form-control @error('dias') is-invalid @enderror" value="{{ $VacacionForm->saldo_dias }}" required autocomplete="saldo_dias" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -249,8 +249,8 @@
         @enderror
       </div>
       <div class="col-md-4">
-        <input id="saldo_dias_l" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror d-none" name="saldo_dias_l" value="{{ $VacacionForm->saldo_dias_l }}" required autocomplete="dias">
-        <input id="saldo_dias_l_a" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror" value="{{ $VacacionForm->saldo_dias_l }}" required autocomplete="dias" disabled>
+        <input id="saldo_dias_l" type="text" placeholder="Literal"   style="border: none;outline: none;background-color: white" class="form-control @error('dias') is-invalid @enderror d-none" name="saldo_dias_l" value="{{ $VacacionForm->saldo_dias_l }}" required autocomplete="dias">
+        <input id="saldo_dias_l_a" type="text" placeholder="Literal"  style="border: none;outline: none;background-color: white" class="form-control @error('dias') is-invalid @enderror" value="{{ $VacacionForm->saldo_dias_l }}" required autocomplete="dias" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -275,8 +275,8 @@
     </div>
     @if (Auth::user()->tienePermiso(18,2))
     <div class="d-flex justify-content-center mt-2" style="gap: 10px;">
-      <button name="estado" type="submit" class="button btn btn-success btn-xs" value="Aceptada"><i class="fas fa-check mr-2"></i>Aceptar</button>
-      <button name="estado" type="submit" class="button btn btn-danger btn-xs" value="Rechazada"><i class="fas fa-times mr-2"></i>Rechazar</button>
+      <button name="estado" type="submit" class="btn btn-outline-primary" value="Aceptada">  <i class="fas fa-check mr-2"></i> &#160Aceptar</button>
+      <button name="estado" type="submit" class="btn btn-outline-secondary" value=" Rechazada"> <i class="fas fa-times mr-2"></i> &#160Rechazar</button>
     </div>
     @elseif (Auth::user()->rol != 'admin' && $VacacionForm->estado != null)
     @endif
