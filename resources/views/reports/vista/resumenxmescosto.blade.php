@@ -618,6 +618,7 @@
           <td>{{ $val->TotImp }}</td>
         </tr>
         @endforeach
+ 
         <tr class="text-end" style="font-weight: bold; background-color: rgb(190 205 251);">
           <td class="text-start">REGIONAL 2</td>
           @foreach ($options as $k => $value)
@@ -658,6 +659,11 @@
           <td>{{ $val->TotImp }}</td>
         </tr>
         @endforeach
+
+
+     
+
+
       </tbody>
     </table>
   </div>
@@ -689,7 +695,7 @@
           text: 'Exportar a Excel',
           className: 'btn btn-outline-primary mb-4',
           excelStyles: {                      
-                cells: [2,4,5,15,19,23,27,30,38,44,47,50],                     
+                cells: [2,4,5,17,21,25,29,32,40,47,50,53],                     
                 style: {                      
                     font: {                     
                         name: "Arial",         
