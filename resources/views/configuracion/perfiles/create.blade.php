@@ -139,6 +139,24 @@
             <select name="cargo" id="cargo" class="form-control">
               <option value="" disabled selected>Seleccione Cargo</option>
               <option value="Auxiliar Contable">Auxiliar Contable</option>
+
+
+
+              <option value="ASESOR DE VENTAS INSTITUCIONAL">ASESOR DE VENTAS INSTITUCIONAL</option>
+              <option value="COORDINADOR DE PUNTO DE VENTA">COORDINADOR DE PUNTO DE VENTA</option>
+              <option value="ASISTENTE DE VENTAS SEGMENTO INSTITUCIONAL">ASISTENTE DE VENTAS SEGMENTO INSTITUCIONAL</option>
+              <option value="ASESOR DE PUNTO DE VENTA">ASESOR DE PUNTO DE VENTA</option>
+              <option value="ASESOR DE VENTAS MAYORISTA">ASESOR DE VENTAS MAYORISTA</option>
+              <option value="AUXILIAR DE ALMACÉN Y LOGÍSTICA">AUXILIAR DE ALMACÉN Y LOGÍSTICA</option>
+              <option value="ENCARGADO REGIONAL SANTA CRUZ">ENCARGADO REGIONAL SANTA CRUZ</option>
+              <option value="ANALISTA CONTABLE I">ANALISTA CONTABLE I</option>
+              <option value="ASISTENTE DE SISTEMAS">ASISTENTE DE SISTEMAS</option>
+              <option value="ASISTENTE DE MARKETING">ASISTENTE DE MARKETING</option>
+              <option value="ENCARGADO DE SISTEMAS">ENCARGADO DE SISTEMAS</option>
+              <option value="JEFE DE ADMINISTRACION Y CONTABILIDAD">JEFE DE ADMINISTRACION Y CONTABILIDAD</option>
+              <option value="JEFE DE ALMACEN CENTRAL">JEFE DE ALMACEN CENTRAL</option>
+              <option value="ANALISTA DE CARTERA DE CLIENTES">ANALISTA DE CARTERA DE CLIENTES</option>
+
               <option value="Jefe">Jefe</option>
               <option value="Personal">Personal</option>
               <option value="Vendedor">Vendedor</option>
@@ -149,7 +167,7 @@
               <option value="Gerente administrativo">Gerente administrativo</option>
               <option value="Gerente comercial">Gerente comercial</option>
               <option value="Encargado de logistica">Encargado de logistica</option>
-              <option value="Encargado de sistemas">Encargado de sistemas</option>
+        
               <option value="Vendedor institucional">Vendedor institucional</option>
               <option value="Vendedor mayorista">Vendedor mayorista</option>
               <option value="Distribuidor">Distribuidor</option>
@@ -208,7 +226,7 @@
           </div>
           <label for="dias_vacacion" class="col-3 col-form-label">{{ __('Dias de Vacacion a la fecha') }}</label>
           <div class="col-md-3">
-            <input id="dias_vacacion_a" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" disabled>
+            <input id="dias_vacacion_a" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror"  style="border: none;outline: none;background: white" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" disabled>
             <input id="dias_vacacion" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror d-none" name="dias_vacacion" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" autofocus>
             @error('dias_vacacion')
             <span class="invalid-feedback" role="alert">

@@ -45,7 +45,7 @@ class ResumenMesVentasController extends Controller
       ['name' => 'MARISCAL', 'abrv' => 'MARISCAL', 'users' => [38, 44, 51, 37, 67]],
       ['name' => 'CALACOTO', 'abrv' => 'CALACOTO', 'users' => [29,57,74,32,43,52]],
       ['name' => 'SAN MIGUEL', 'abrv' => 'SAN MIGUEL', 'users' => [76,77,78]],
-      ['name' => 'INSTITUCIONALES', 'abrv' => 'INSTITUCIONALES', 'users' => [16, 17, 62, 56, 3, 58, 4]],
+      ['name' => 'INSTITUCIONALES', 'abrv' => 'INSTITUCIONALES', 'users' => [16, 17, 62, 56, 3, 58, 4,75,97,63]],
       ['name' => 'MAYORISTAS', 'abrv' => 'MAYORISTAS', 'users' => [18, 19, 55, 21, 20]],
       ['name' => 'SANTA CRUZ', 'abrv' => 'SANTA CRUZ', 'users' => [40, 39]],
     ];
@@ -68,7 +68,7 @@ class ResumenMesVentasController extends Controller
       ['name' => 'REGIONAL1', 'abrv' => 'REGIONAL1', 'alm' => [57, 58]],
       ['name' => 'REGIONAL2', 'abrv' => 'REGIONAL2', 'alm' => [59, 60, 61]],
     ];
-    $general = [22, 41, 49, 46,61, 68, 9, 65, 26, 42, 50, 28,69, 38, 44, 51, 37, 67, 29,57,74,32,43,52,76,77,78,16, 17, 62, 56, 3, 58, 4,18, 19, 55, 21, 20,40, 39,63,64,80];
+    $general = [22, 41, 49, 46,61, 68, 9, 65, 26, 42, 50, 28,69, 38, 44, 51, 37, 67, 29,57,74,32,43,52,76,77,78,16, 17, 62, 56, 3, 58, 4,18, 19, 55, 21, 20,40, 39,63,64,80,75,97];
 
     // $fini = date("d/m/Y", strtotime($request->fini));
     // $ffin = date("d/m/Y", strtotime($request->ffin));

@@ -127,8 +127,8 @@
       </label>
 
       <div class="col-md-1">
-        <input id="dias_v" type="text" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v" value="{{ $dias_vacaciones }}" required autocomplete="dias_v">
-        <input id="dias_v_a" type="text" class="form-control @error('dias_v') is-invalid @enderror" value="{{ $dias_vacaciones }}" required autocomplete="dias_v" disabled>
+        <input id="dias_v" type="text" style="border:none;outline: none;background-color: white" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v" value="{{ $dias_vacaciones }}" required autocomplete="dias_v">
+        <input id="dias_v_a" type="text" style="border:none;outline: none;background-color: white"class="form-control @error('dias_v') is-invalid @enderror" value="{{ $dias_vacaciones }}" required autocomplete="dias_v" disabled>
         @error('dias_v')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -137,8 +137,8 @@
       </div>
 
       <div class="col-md-4">
-        <input id="dias_v_l" type="text" placeholder="Literal" class="form-control @error('dias_v_l') is-invalid @enderror d-none" name="dias_v_l" value="{{ old('dias_v_l') }}" required autocomplete="dias_v_l">
-        <input id="dias_v_l_a" type="text" placeholder="Literal" class="form-control @error('dias_v_l') is-invalid @enderror" value="{{ old('dias_v_l') }}" required autocomplete="dias_v_l" disabled>
+        <input id="dias_v_l"  style="border:none;outline: none;background-color: white" type="text" placeholder="Literal" class="form-control @error('dias_v_l') is-invalid @enderror d-none" name="dias_v_l" value="{{ old('dias_v_l') }}" required autocomplete="dias_v_l">
+        <input id="dias_v_l_a"  style="border:none;outline: none;background-color: white" type="text" placeholder="Literal" class="form-control @error('dias_v_l') is-invalid @enderror" value="{{ old('dias_v_l') }}" required autocomplete="dias_v_l" disabled>
         @error('dias_v_l')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -152,8 +152,8 @@
       </label>
 
       <div class="col-md-1">
-        <input id="dias_tomados" name="dias_tomados" type="text" class="form-control @error('dias') is-invalid @enderror d-none" value="@if ($dias_tomados[0]->suma != 0) {{ $dias_tomados[0]->suma }} @else 0 @endif" required autocomplete="dias_tomados">
-        <input id="dias_tomados_a" type="text" class="form-control @error('dias') is-invalid @enderror" value="{{ $dias_tomados[0]->suma }}" required autocomplete="dias_tomados" disabled>
+        <input id="dias_tomados"  style="border:none;outline: none;background-color: white" name="dias_tomados" type="text" class="form-control @error('dias') is-invalid @enderror d-none" value="@if ($dias_tomados[0]->suma != 0) {{ $dias_tomados[0]->suma }} @else 0 @endif" required autocomplete="dias_tomados">
+        <input id="dias_tomados_a"  style="border:none;outline: none;background-color: white" type="text" class="form-control @error('dias') is-invalid @enderror" value="{{ $dias_tomados[0]->suma }}" required autocomplete="dias_tomados" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -161,8 +161,8 @@
         @enderror
       </div>
       <div class="col-md-4">
-        <input id="dias_tomados_l" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror d-none" name="dias_tomados" value="{{ old('dias') }}" required autocomplete="dias">
-        <input id="dias_tomados_l_a" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror" value="{{ old('dias') }}" required autocomplete="dias" disabled>
+        <input id="dias_tomados_l"  style="border:none;outline: none;background-color: white" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror d-none" name="dias_tomados" value="{{ old('dias') }}" required autocomplete="dias">
+        <input id="dias_tomados_l_a"  style="border:none;outline: none;background-color: white" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror" value="{{ old('dias') }}" required autocomplete="dias" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -184,8 +184,8 @@
         @enderror
       </div>
       <div class="col-md-4">
-        <input id="dias_l" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror d-none" name="dias_l" value="{{ old('dias') }}" required autocomplete="dias">
-        <input id="dias_l_a" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror" value="{{ old('dias') }}" required autocomplete="dias" disabled>
+        <input id="dias_l" type="text"  style="border:none;outline: none;background-color: white" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror d-none" name="dias_l" value="{{ old('dias') }}" required autocomplete="dias">
+        <input id="dias_l_a" type="text"  style="border:none;outline: none;background-color: white" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror" value="{{ old('dias') }}" required autocomplete="dias" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -199,8 +199,8 @@
       </label>
 
       <div class="col-md-1">
-        <input id="saldo_dias" name="saldo_dias" type="text" class="form-control @error('dias') is-invalid @enderror d-none" value="{{ old('dias') }}" required autocomplete="saldo_dias">
-        <input id="saldo_dias_a" type="text" class="form-control @error('dias') is-invalid @enderror" value="{{ old('dias') }}" required autocomplete="saldo_dias" disabled>
+        <input id="saldo_dias" name="saldo_dias" type="text"  style="border:none;outline: none;background-color: white" class="form-control @error('dias') is-invalid @enderror d-none" value="{{ old('dias') }}" required autocomplete="saldo_dias">
+        <input id="saldo_dias_a" type="text"  style="border:none;outline: none;background-color: white" class="form-control @error('dias') is-invalid @enderror" value="{{ old('dias') }}" required autocomplete="saldo_dias" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -208,8 +208,8 @@
         @enderror
       </div>
       <div class="col-md-4">
-        <input id="saldo_dias_l" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror d-none" name="saldo_dias_l" value="{{ old('dias') }}" required autocomplete="dias">
-        <input id="saldo_dias_l_a" type="text" placeholder="Literal" class="form-control @error('dias') is-invalid @enderror" value="{{ old('dias') }}" required autocomplete="dias" disabled>
+        <input id="saldo_dias_l" type="text" placeholder="Literal"  style="border:none;outline: none;background-color: white" class="form-control @error('dias') is-invalid @enderror d-none" name="saldo_dias_l" value="{{ old('dias') }}" required autocomplete="dias">
+        <input id="saldo_dias_l_a" type="text" placeholder="Literal"  style="border:none;outline: none;background-color: white" class="form-control @error('dias') is-invalid @enderror" value="{{ old('dias') }}" required autocomplete="dias" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -463,5 +463,59 @@
     else
       return Millones(data.enteros) + " DIAS";
   } //NumeroALetras()
+</script>
+
+<script>
+
+document.getElementById("dias").addEventListener("keyup", function(e) {
+
+    //var fechaI = $("#fecha_ini").val();
+  //  var diasAtomar =$("#dias").val();
+  // var diaDD = diaD(fechaI);
+
+
+   // ejemplo de uso
+var fecha = $("#fecha_ini").val();
+var fechaModificada = modificarFecha(fecha, 0); // sumar 7 días
+var fechaFormateada = mostrarFecha(fechaModificada);
+console.log(fechaFormateada); // muestra "11/4/2023"
+
+
+ 
+   
+  });
+
+
+// función para modificar la fecha
+function modificarFecha(fecha, dias) {
+  // crear objeto Date a partir de la cadena de fecha
+  var date = new Date(fecha);
+  // agregar la cantidad de días especificada
+  date.setDate(date.getDate() + dias);
+  // devolver la fecha modificada
+  return date;
+}
+
+// función para mostrar la fecha
+function mostrarFecha(fecha) {
+  // crear objeto Date a partir de la cadena de fecha
+  var date = new Date(fecha);
+
+  var dia1 = moment(fecha).format('D');
+
+  console.log("dias: "+fecha);
+  // obtener los componentes de la fecha
+  var dia = date.getDate();
+  var mes = date.getMonth() + 1; // los meses empiezan en 0
+  var anio = date.getFullYear();
+  // devolver la fecha formateada como cadena
+  return dia + '/' + mes + '/' + anio ;
+}
+
+
+
+
+
+
 </script>
 @endsection
