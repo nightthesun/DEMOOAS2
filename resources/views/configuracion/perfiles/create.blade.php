@@ -137,8 +137,16 @@
           <label for="cargo" class="col-2 col-form-label">{{ __('Cargo') }}</label>
           <div class="col-md-4">
             <select name="cargo" id="cargo" class="form-control">
+
               <option value="" disabled selected>Seleccione Cargo</option>
-              <option value="Auxiliar Contable">Auxiliar Contable</option>
+              @foreach($cargos as $c)
+              
+              <option value="{{ $c->NombreCargo}}" >{{ $c->NombreCargo}}</option>
+            
+            @endforeach
+              <!--
+              
+                <option value="Auxiliar Contable">Auxiliar Contable</option>
               <option value="Jefe">Jefe</option>
               <option value="Personal">Personal</option>
               <option value="Vendedor">Vendedor</option>
@@ -153,6 +161,8 @@
               <option value="Vendedor institucional">Vendedor institucional</option>
               <option value="Vendedor mayorista">Vendedor mayorista</option>
               <option value="Distribuidor">Distribuidor</option>
+              -->
+            
             </select>
           </div>
           <label for="corp_email" class="col-2 col-form-label">
@@ -294,6 +304,7 @@
 @section('mis_scripts')
 <script src="http://momentjs.com/downloads/moment.min.js"></script>
 <script>
+
   var loadFile = function(event) {
     var image = document.getElementById('output');
     image.src = URL.createObjectURL(event.target.files[0]);
@@ -310,16 +321,79 @@
   });
 
   document.getElementById("fecha_ingreso").addEventListener("blur", function(e) {
-    var f = new Date();
-    var fecha_actual = moment(f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate()); 
 
-    var fecha_ingreso = moment($("#fecha_ingreso").val());
-    var fecha_diff = fecha_actual.diff(fecha_ingreso, 'days');
-    var años = parseInt(fecha_diff/366);
-    var dias_vacacion = años * 15;
-    $("#dias_vacacion_a").val(años * 15);
-    $("#dias_vacacion").val(años * 15);
+//datos de entrada
+var f1=365*4;
+var f2=365*10;
+
+
+// Crear una nueva instancia del objeto Date
+var fechaActual = new Date();
+
+// Obtener la fecha en formato legible para humanos
+//var fechaEnTexto1 = fechaActual.toLocaleDateString();
+var fechaEnTexto=fechaActual.toISOString().substring(0, 10);
+
+var inputFecha = document.getElementById("fecha_ingreso");
+
+// Obtener el valor del input
+var valorFecha = inputFecha.value;
+
+// Crear una instancia de Date utilizando el valor del input
+var fecha = new Date(valorFecha);
+
+
+
+// Definir las dos fechas
+var fecha1 = new Date(fechaEnTexto);
+var fecha2 = new Date(valorFecha);
+
+// Restar las fechas en milisegundos y convertir el resultado en días
+var resultadoEnDias = Math.round((fecha1.getTime() - fecha2.getTime()) / (1000 * 60 * 60 * 24));
+console.log("La fecha de hoy es " + resultadoEnDias +" f1:" +f1);
+
+if (resultadoEnDias >=f1) {
+  if (resultadoEnDias >= f2) {
+           $("#dias_vacacion_a").val(30);
+    $("#dias_vacacion").val(30);
     console.log(dias_vacacion);
+  } else {
+   
+
+    $("#dias_vacacion_a").val(20);
+    $("#dias_vacacion").val(20);
+    console.log(dias_vacacion);
+  }
+} 
+else{
+    if (resultadoEnDias>=365) {
+      $("#dias_vacacion_a").val(15);
+    $("#dias_vacacion").val(15);
+    console.log(dias_vacacion);
+   
+    } else {
+      $("#dias_vacacion_a").val(0);
+    $("#dias_vacacion").val(0);
+    console.log(dias_vacacion);
+   
+    }
+  
+}
+
+
+  //  var f = new Date();
+  //  var fecha_actual = moment(f.getFullYear() + "-" + (f.getMonth() +1) + "-" + f.getDate()); 
+   // console.log("fecha_actual " +fecha_actual  );
+   // var fecha_ingreso = moment($("#fecha_ingreso").val());
+
+   // console.log("fecha de ingre " +fecha_ingreso  );
+   // var fecha_diff = fecha_actual.diff(fecha_ingreso, 'days');
+  
+   // var años = parseInt(fecha_diff/366);
+   // var dias_vacacion = años * 15;
+   // $("#dias_vacacion_a").val(años * 15);
+   // $("#dias_vacacion").val(años * 15);
+   // console.log(dias_vacacion);
   });
 </script>
 @endsection

@@ -195,7 +195,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '4.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -229,7 +229,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '5.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -263,7 +263,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '4.10.10.20.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -297,7 +297,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '4.10.10.50.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -331,7 +331,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '5.30.20.10.02'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -395,7 +395,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '4.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         and inlocNomb <>('REGIONALES')
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
@@ -431,7 +431,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '5.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         and inlocNomb <>('REGIONALES')
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
@@ -467,7 +467,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '4.10.10.20.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         and inlocNomb <>('REGIONALES')
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
@@ -503,7 +503,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '4.10.10.50.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         and inlocNomb <>('REGIONALES')
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
@@ -539,7 +539,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '5.30.20.10.02'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         and inlocNomb <>('REGIONALES')
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
@@ -591,7 +591,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '4.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         and inlocNomb <>('REGIONALES')
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
@@ -627,7 +627,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '5.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         and inlocNomb <>('REGIONALES')
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
@@ -663,7 +663,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '4.10.10.20.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         and inlocNomb <>('REGIONALES')
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
@@ -699,7 +699,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '4.10.10.50.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         and inlocNomb <>('REGIONALES')
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
@@ -734,7 +734,7 @@ class ResumenMesCostosVentasController extends Controller
         AND cntrdNcta = '5.30.20.10.02'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -799,7 +799,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '4.10.10.10.01'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -835,7 +835,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '5.10.10.10.01'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -871,7 +871,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '4.10.10.20.01'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -907,7 +907,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '4.10.10.50.01'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -943,7 +943,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '5.30.20.10.02'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -996,7 +996,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '4.10.10.10.01'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -1032,7 +1032,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '5.10.10.10.01'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -1068,7 +1068,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '4.10.10.20.01'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -1104,7 +1104,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '4.10.10.50.01'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -1140,7 +1140,7 @@ foreach ($mMayorista as $key) {
     AND cntrdNcta = '5.30.20.10.02'
     AND cntrdMdel = 0
     AND CAST (cntrdFtra AS DATE) IS NOT NULL
-    AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+    AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
     and inlocNomb <>('REGIONALES')
     GROUP BY cntraCusr, MONTH(cntrdFtra)
     ) AS venta
@@ -1205,7 +1205,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1240,7 +1240,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '5.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1275,7 +1275,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.20.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1310,7 +1310,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.50.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1345,7 +1345,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '5.30.20.10.02'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1397,7 +1397,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1432,7 +1432,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '5.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1467,7 +1467,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.20.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1502,7 +1502,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.50.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1537,7 +1537,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '5.30.20.10.02'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY vtvtaCalm, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1592,7 +1592,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1626,7 +1626,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '5.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1660,7 +1660,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.20.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1694,7 +1694,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.50.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1728,7 +1728,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '5.30.20.10.02'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1779,7 +1779,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1813,7 +1813,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '5.10.10.10.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1847,7 +1847,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.20.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1881,7 +1881,7 @@ foreach ($mMayorista as $key) {
         AND cntrdNcta = '4.10.10.50.01'
         AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT
@@ -1916,7 +1916,7 @@ foreach ($mMayorista as $key) {
    -- AND cntrdNcta = '5.20.20.35.02'
     AND cntrdMdel = 0
         AND CAST (cntrdFtra AS DATE) IS NOT NULL
-        AND YEAR(CAST (cntrdFtra AS DATE)) = 2023
+        AND YEAR(CAST (cntrdFtra AS DATE)) = 2022
         GROUP BY cntraCusr, MONTH(cntrdFtra)
         ) AS venta
         PIVOT

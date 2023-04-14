@@ -11,7 +11,7 @@
     <div class=" row d-flex justify-content-center">
       <div class="col-3"></div>
       <div class="col-6 d-flex align-items-center justify-content-center">
-        <h3 class="text-center text-primary">FORMULARIO VACACIONES</h3>
+        <h3 class="text-center text-primary">FORMULARIO VACACIONES </h3>
       </div>
       <div class="col-3 d-flex align-items-center justify-content-end">
         <h4 style="color:red">Nro. </h4>
@@ -257,6 +257,56 @@
 
 <script src="http://momentjs.com/downloads/moment.min.js"></script>
 <script>
+var numeros = [1, 2, 3, 4, 5];
+
+document.getElementById("fecha_ret").addEventListener("input", function(e) {
+  var inputFechaS = document.getElementById("fecha_ini");
+  var inputFechaR = document.getElementById("fecha_ret");
+
+  // Obtener el valor del input
+  var valorFechaS = inputFechaS.value;
+  var valorFechaR = inputFechaR.value;
+
+// Crear una instancia de Date utilizando el valor del input
+var fechaS = new Date(valorFechaS);
+var fechaR = new Date(valorFechaR);
+var fechaEnTextoS=fechaS.toISOString().substring(0, 10);
+var fechaEnTextoR=fechaR.toISOString().substring(0, 10);
+
+// Definir las dos fechas
+var fecha1 = new Date(fechaEnTextoR);
+var fecha2 = new Date(fechaEnTextoS);
+
+// Obtener el año, el mes y el día de la fecha
+var anio2 = fecha2.getFullYear();
+var mes2 = fecha2.getMonth() + 1; // Ten en cuenta que el método getMonth() devuelve un valor de 0 a 11, por lo que debes sumarle 1 para obtener el mes correcto.
+var dia2 = fecha2.getDate() +1 ;
+
+
+
+// Obtener el año, el mes y el día de la fecha
+var anio1 = fecha1.getFullYear();
+var mes1 = fecha1.getMonth() + 1; // Ten en cuenta que el método getMonth() devuelve un valor de 0 a 11, por lo que debes sumarle 1 para obtener el mes correcto.
+var dia1 = fecha1.getDate() +1 ;
+///////////////////////////////////////////operaciones para obtener el calendario //////
+var moth1Array=ArrayMes(mes1);
+var moth2=ArrayUltimoDia(mes1);
+// Restar las fechas en milisegundos y convertir el resultado en días
+var resultadoEnDias = Math.round((fecha1.getTime() - fecha2.getTime()) / (1000 * 60 * 60 * 24));
+
+
+var operacionFinal1= operaciones(moth1Array,dia2,dia1,resultadoEnDias);
+console.log(moth1Array);
+console.log("ultimo dia" + moth2);
+console.log("La fecha de hoy es " + resultadoEnDias);
+
+console.log("resultado: " +operacionFinal1 );
+});
+
+
+
+
+
   document.getElementById("dias").addEventListener("keyup", function(e) {
     var letras = NumeroALetras(this.value);
     var val1 = $("#dias_v").val();
@@ -294,7 +344,105 @@
     $("#dias_l_a").val(letras2);
     $("#dias_tomados_l_a").val(letras3);
   });
+   
+ function ArrayMes(dato){
+  var enero = [1, 2, 8, 15, 23,29];
+  var febrero = [2, 4, 5, 12, 19,20,21,26];
+  var marzo = [3, 5, 12, 19, 26];
+  var abril = [4, 2, 7, 9,16,23,30];
+  var mayo = [5,1,7,14,21,28];
 
+switch (dato) {
+  case enero[0]:
+    return enero;
+  case febrero[0]:
+    return febrero ;  
+  case marzo[0]:
+    return marzo;  
+  case abril[0]:
+    return abril= [2, 7, 9,16,23,30];
+  case mayo[0]:
+    return mayo; 
+   
+  default:
+    break;
+}
+  
+ }
+
+
+ function ArrayUltimoDia(dato){
+  var enero = [1,31];
+  var febrero = [2,28];
+  var marzo = [3,31];
+  var abril = [4,30];
+  var mayo = [5,31];
+  var junio = [6,30];
+  var julio = [7,31];
+  var agosto = [8,31];
+  var septiembre = [9,30];
+  var octubre = [10,31];
+  var noviembre = [11,30];
+  var diciembre = [12,31];
+  
+  
+
+switch (dato) {
+
+// var ultimoElemento = abril[abril.length - 1];
+
+  case enero[0]:
+    return enero[1];
+  case febrero[0]:
+    return febrero[1] ;  
+  case marzo[0]:
+    return marzo[1];  
+  case abril[0]:
+    return abril[1];  
+  case mayo[0]:
+    return mayo[1]; 
+  case junio[0]:
+    return junio[1];
+  default:
+    break;
+}
+  
+ }
+function operaciones(ArrayM,diaI1,diaF1,diaOperacion) {
+console.log("dato1 "+ ArrayM + "dato2 "+diaI1+"dato3 "+diaF1+"dato4 "+diaOperacion);
+  var ini=0;
+  var op=0;  
+while (diaI1<=diaF1) {
+  
+  
+
+  
+  if (ArrayM.indexOf(diaI1)!==-1) {
+    ini=ini+1;
+  } 
+  diaI1=diaI1+1;
+}
+op=diaOperacion-ini;
+
+
+console.log("dato familiar: "+op);
+
+
+
+
+var miArray = [1, 2, 3, 4, 3, 5];
+var elementoBuscado = 3;
+var indice = -1;
+var contador = 0;
+
+while ((indice = miArray.indexOf(elementoBuscado, indice + 1)) !== -1) {
+  contador++;
+}
+
+console.log("El elemento", elementoBuscado, "aparece", contador, "veces en el array.");
+
+return  op;
+}
   function Unidades(num) {
 
     switch (num) {
