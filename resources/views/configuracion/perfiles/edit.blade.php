@@ -141,7 +141,18 @@
           <div class="col-md-4">
             <select name="cargo" id="cargo" class="form-control">
               <option value="" disabled selected>Seleccione Cargo</option>
-              <option value="Jefe" @if($perfil->cargo == 'Jefe')
+              @foreach($cargos as $c)
+              
+              <option value="{{ $c->NombreCargo}}"  @if($perfil->cargo == $c->NombreCargo)
+              selected @endif>{{ $c->NombreCargo}}</option>
+            
+            @endforeach
+
+
+
+
+              <!--
+               <option value="Jefe" @if($perfil->cargo == 'Jefe')
                 selected @endif>Jefe</option>
 
               <option value="Personal" @if($perfil->cargo == 'Personal') selected @endif>Personal</option>
@@ -171,6 +182,11 @@
 
               <option value="Distribuidor" @if($perfil->cargo == 'Distribuidor') selected @endif>Distribuidor</option>
             </select>
+              
+              
+              
+              -->
+             
           </div>
           <label for="corp_email" class="col-2 col-form-label">
             {{ __('Correo Coporativo') }}
@@ -223,7 +239,9 @@
             </span>
             @enderror
           </div>
-          <label for="dias_vacacion_
+
+          {{-- 
+               <label for="dias_vacacion_
           tomadas" class="col-3 col-form-label">{{ __('Registrar Dias') }}</label>
           <div class="col-md-3">
             <input id="registrar_dias" value="" type="number" class="form-control @error('registrar_dias') is-invalid @enderror" name="registrar_dias" autocomplete="registrar_dias" autofocus>
@@ -233,11 +251,13 @@
             </span>
             @enderror
           </div>
+            --}}
+       
         </div>
         <div class="mb-2 row d-flex">
           <label for="dias_vacacion" class="col-3 col-form-label">{{ __('Dias de Vacacion a la fecha') }}</label>
           <div class="col-md-3">
-            <input id="dias_vacacion_a" value="{{$perfil->dias_vacacion}}" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" disabled>
+            <input id="dias_vacacion_a" style="border: none; outset:none; background-color: white" value="{{$perfil->dias_vacacion}}" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" disabled>
             <input id="dias_vacacion" value="{{$perfil->dias_vacacion}}" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror d-none" name="dias_vacacion" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" autofocus>
             @error('dias_vacacion')
             <span class="invalid-feedback" role="alert">
@@ -248,9 +268,9 @@
         </div>
         <div class="mb-2 row d-flex">
           <label for="dias_vacacion_
-          tomadas" class="col-3 col-form-label">{{ __('Dias de Vacacion Tomadas') }}</label>
+          tomadas" class="col-3 col-form-label">{{ __('Dias de Vacacion Tomadas') }} :</label>
           <div class="col-md-3">
-            <input id="dias_vacacion_tomadas_a" value="{{ $dias_tomados[0]->suma }}" type="number" class="form-control @error('dias_vacacion_tomadas') is-invalid @enderror" autocomplete="dias_vacacion_tomadas" autofocus disabled>
+            <input id="dias_vacacion_tomadas_a" style="border: none; outset:none; background-color: white" value="{{ $dias_tomados[0]->suma }}" type="number" class="form-control @error('dias_vacacion_tomadas') is-invalid @enderror" autocomplete="dias_vacacion_tomadas" autofocus disabled>
             <input id="dias_vacacion_tomadas" value="{{ $dias_tomados[0]->suma }}" type="number" class="form-control @error('dias_vacacion_tomadas') is-invalid @enderror d-none" name="dias_vacacion_tomadas" autocomplete="dias_vacacion_tomadas" autofocus>
             @error('dias_vacacion')
             <span class="invalid-feedback" role="alert">
@@ -263,7 +283,7 @@
           <label for="dias_vacacion_
           tomadas" class="col-3 col-form-label">{{ __('Saldo Dias de Vacacion') }}</label>
           <div class="col-md-3">
-            <input id="saldo_dias_a" value="" type="number" class="form-control @error('saldo_dias') is-invalid @enderror" autocomplete="saldo_dias" disabled>
+            <input id="saldo_dias_a" style="border: none; outset:none; background-color: white" value="" type="number" class="form-control @error('saldo_dias') is-invalid @enderror" autocomplete="saldo_dias" disabled>
             <input id="saldo_dias" value="" type="number" name="saldo_dias" class="form-control @error('saldo_dias') is-invalid @enderror d-none" autocomplete="saldo_dias">
             @error('saldo_dias')
             <span class="invalid-feedback" role="alert">
@@ -373,16 +393,71 @@
   });
 
   document.getElementById("fecha_ingreso").addEventListener("blur", function(e) {
-    var f = new Date();
-    var fecha_actual = moment(f.getFullYear() + "-" + (f.getMonth() + 1) + "-" + f.getDate());
 
-    var fecha_ingreso = moment($("#fecha_ingreso").val());
-    var fecha_diff = fecha_actual.diff(fecha_ingreso, 'days');
-    var años = parseInt(fecha_diff / 366);
-    var dias_vacacion = años * 15;
-    $("#dias_vacacion_a").val(años * 15);
-    $("#dias_vacacion").val(años * 15);
+
+
+
+//datos de entrada
+var f1=365*4;
+var f2=365*10;
+
+
+// Crear una nueva instancia del objeto Date
+var fechaActual = new Date();
+
+// Obtener la fecha en formato legible para humanos
+//var fechaEnTexto1 = fechaActual.toLocaleDateString();
+var fechaEnTexto=fechaActual.toISOString().substring(0, 10);
+
+var inputFecha = document.getElementById("fecha_ingreso");
+
+// Obtener el valor del input
+var valorFecha = inputFecha.value;
+
+// Crear una instancia de Date utilizando el valor del input
+var fecha = new Date(valorFecha);
+
+
+
+// Definir las dos fechas
+var fecha1 = new Date(fechaEnTexto);
+var fecha2 = new Date(valorFecha);
+
+// Restar las fechas en milisegundos y convertir el resultado en días
+var resultadoEnDias = Math.round((fecha1.getTime() - fecha2.getTime()) / (1000 * 60 * 60 * 24));
+console.log("La fecha de hoy es " + resultadoEnDias +" f1:" +f1);
+
+if (resultadoEnDias >=f1) {
+  if (resultadoEnDias >= f2) {
+           $("#dias_vacacion_a").val(30);
+    $("#dias_vacacion").val(30);
     console.log(dias_vacacion);
+  } else {
+   
+
+    $("#dias_vacacion_a").val(20);
+    $("#dias_vacacion").val(20);
+    console.log(dias_vacacion);
+  }
+} 
+else{
+    if (resultadoEnDias>=365) {
+      $("#dias_vacacion_a").val(15);
+    $("#dias_vacacion").val(15);
+    console.log(dias_vacacion);
+   
+    } else {
+      $("#dias_vacacion_a").val(0);
+    $("#dias_vacacion").val(0);
+    console.log(dias_vacacion);
+   
+    }
+  
+}
+
+
+
+
   });
 </script>
 @endsection

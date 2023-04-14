@@ -34,25 +34,26 @@ class ReporteVtsController extends Controller
             ['id'=> 'C2', 'name'=>'IDRA HANDAL', 'usrs'=>[4], 'loc'=>4 , 'tipo'=>'PDV', 'const' => true],
             ['id'=> 'C3', 'name'=>'IDRA CALACOTO', 'usrs'=>[4], 'loc'=> 5, 'tipo'=>'PDV', 'const' => true],
             ['id'=> 'C4', 'name'=>'IDRA MARISCAL', 'usrs'=>[4], 'loc'=>6, 'tipo'=>'PDV', 'const' => true],
+            ['id'=> 'C5', 'name'=>'IDRA SANMIGUEL', 'usrs'=>[4], 'loc'=>12, 'tipo'=>'PDV', 'const' => true],
             ['id'=> 'L1', 'name'=>'REGIONAL SUCRE', 'usrs'=>[63], 'alm'=>57, 'tipo'=>'MAYO', 'const' => true],
             ['id'=> 'L2', 'name'=>'REGIONAL POTOSI', 'usrs'=>[63], 'alm'=>58, 'tipo'=>'MAYO', 'const' => true],
             ['id'=> 'L3', 'name'=>'REGIONAL TARIJA', 'usrs'=>[64], 'alm'=>59, 'tipo'=>'MAYO', 'const' => true],
             ['id'=> 'L4', 'name'=>'REGIONAL ORURO', 'usrs'=>[64], 'alm'=>60, 'tipo'=>'MAYO', 'const' => true],
             ['id'=> 'L5', 'name'=>'REGIONAL COCHABAMBA', 'usrs'=>[64], 'loc'=>61, 'tipo'=>'MAYO', 'const' => true],
             ['id'=> 'G1','name'=>'CASA MATRIZ VTS', 'usrs'=>[46], 'tipo'=>'INS_SUC'],
-            ['id'=> 'G2','name'=>'CASA MATRIZ PDV', 'usrs'=>[49,22,41], 'tipo'=>'PDV'],
-            ['id'=> 'G3','name'=>'CALACOTO VTS', 'usrs'=>[29,57], 'tipo'=>'INS_SUC'],
+            ['id'=> 'G2','name'=>'CASA MATRIZ PDV', 'usrs'=>[49,22,41,3,5,6,9,65,4,23,24,68,56,7,5,60], 'tipo'=>'PDV'],
+            ['id'=> 'G3','name'=>'CALACOTO VTS', 'usrs'=>[29,57,74], 'tipo'=>'INS_SUC'],
             ['id'=> 'G4', 'name'=>'CALACOTO PDV', 'usrs'=>[52,32,43], 'tipo'=>'PDV'],
             ['id'=> 'G5', 'name'=>'HANDAL VTS', 'usrs'=>[28], 'tipo'=>'INS_SUC'],
-            ['id'=> 'G6', 'name'=>'HANDAL PDV', 'usrs'=>[50,26,42], 'tipo'=>'PDV'],
+            ['id'=> 'G6', 'name'=>'HANDAL PDV', 'usrs'=>[50,26,42,69], 'tipo'=>'PDV'],
             ['id'=> 'G7', 'name'=>'MARISCAL VTS', 'usrs'=>[37], 'tipo'=>'INS_SUC'],
-            ['id'=> 'G8', 'name'=>'MARISCAL PDV', 'usrs'=>[51,44,38], 'tipo'=>'PDV'],
+            ['id'=> 'G8', 'name'=>'MARISCAL PDV', 'usrs'=>[51,44,38,67], 'tipo'=>'PDV'],
             ['id'=> 'G9', 'name'=>'INGAVI VTS', 'usrs'=>[], 'tipo'=>'INS_SUC'],
             ['id'=> 'G10', 'name'=>'INGAVI PDV', 'usrs'=>[], 'tipo'=>'PDV'],
             ['id'=> 'G11', 'name'=>'INSTITUCIONAL 2', 'usrs'=>[17], 'tipo'=>'INS'],
             ['id'=> 'G12', 'name'=>'INSTITUCIONAL 3', 'usrs'=>[16], 'tipo'=>'INS'],
             ['id'=> 'G13', 'name'=>'CONTRATOS', 'usrs'=>[62], 'tipo'=>'INS'],
-            ['id'=> 'G14', 'name'=>'FERIAS PDV', 'usrs'=>[61], 'tipo'=>'PDV'],
+            ['id'=> 'G14', 'name'=>'FERIAS PDV', 'usrs'=>[61,80], 'tipo'=>'PDV'],
             ['id'=> 'G15', 'name'=>'MAYORISTAS 1', 'usrs'=>[19], 'tipo'=>'MAYO'], 
             ['id'=> 'G16', 'name'=>'MAYORISTAS 2', 'usrs'=>[18], 'tipo'=>'MAYO'],
             ['id'=> 'G17', 'name'=>'MAYORISTAS 3', 'usrs'=>[20], 'tipo'=>'MAYO'],
@@ -60,6 +61,8 @@ class ReporteVtsController extends Controller
             ['id'=> 'G19', 'name'=>'MAYORISTAS 5', 'usrs'=>[55], 'tipo'=>'MAYO'],
             ['id'=> 'G20', 'name'=>'SANTA CRUZ VTS', 'usrs'=>[39,40], 'tipo'=>'MAYO'], 
             ['id'=> 'G21', 'name'=>'VENTA MOVIL 1', 'usrs'=>[58], 'tipo'=>'MAYO'],
+            ['id'=> 'G22', 'name'=>'SANMIGUEL PDV', 'usrs'=>[76,77,78], 'tipo'=>'PDV'],
+        
         ];
         $gruFilt = ''; $gruFiltId = '';
         foreach ($grupos as $k => $v) {
@@ -1049,7 +1052,7 @@ class ReporteVtsController extends Controller
             ) as stock
             ON stock.StockCod = inpro.prod
             ORDER BY prod";
-            return dd($qvts);
+         
             $ini = DB::connection('DUALBIZ_SERVER')->select(DB::raw($qvts));
         }
         //$grupoxtipo = collect($g)->sortBy('tipo')->groupBy('tipo');

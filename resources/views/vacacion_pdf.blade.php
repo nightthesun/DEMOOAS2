@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <link rel="stylesheet" href="{{ asset('css/vacacion_pdf.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/vacaciones_pdf.css') }}">
 </head>
 
 <body>

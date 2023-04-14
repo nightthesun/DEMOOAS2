@@ -370,7 +370,7 @@ class CotizacionReportController extends Controller
         order by 1
 
         ";
-
+dd($esUnaQuery);
        $BDfacConsol= DB::connection('sqlsrv')->select(DB::raw($facturaConsolidada));     
            // return dd($BDfacConsol);
 
