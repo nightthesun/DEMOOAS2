@@ -202,6 +202,8 @@ class ReporteVtsController extends Controller
                     ORDER BY grupo
                 ') as pest";
                 $result = DB::connection('DUALBIZ_SERVER')->select(DB::raw($qpestañas_o));
+
+                return dd($result);
                 if($result)
                 {
                     $reporte[$og->name] = $result;
@@ -361,6 +363,7 @@ class ReporteVtsController extends Controller
             ) as stock
             ON stock.StockCod = inpro.prod
             ORDER BY prod";
+            return dd($qvts);
             $ini = DB::connection('DUALBIZ_SERVER')->select(DB::raw($qvts));
         }
         else if(strtotime($fini) >= strtotime('01-03-2021') && strtotime($ffin) >= strtotime('01-03-2021')){
@@ -748,7 +751,9 @@ class ReporteVtsController extends Controller
             ) as stock
             ON stock.StockCod = ventpiv.prod
             ORDER BY prod
-            ";         
+            ";      
+            
+            return dd($qvts);
             $ini = DB::connection('sqlsrv')->select(DB::raw($qvts));
             //return dd($ini);
         }
@@ -854,6 +859,7 @@ class ReporteVtsController extends Controller
                     GROUP BY grupo, prod
                     ";
                     $result = DB::connection('DUALBIZ_SERVER')->select(DB::raw($qpestañas));
+                    return dd($result);
                     if($result)
                     {
                         $reporte[$tg->name] = $result;

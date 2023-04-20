@@ -170,8 +170,8 @@
         {{ __('DIAS DE VACACION') }}
       </label>
       <div class="col-md-1">
-        <input id="dias_v" type="text" style="border: none;outline: none;background-color: white" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v" value="{{ $dias_vacaciones }}" required autocomplete="dias_v">
-        <input id="dias_v_a" type="text" style="border: none;outline: none;background-color: white" class="form-control @error('dias_v') is-invalid @enderror" value="{{ $dias_vacaciones }}" required autocomplete="dias_v" disabled>
+        <input id="dias_v" value="{{$VacacionForm->user->perfiles->dias_vacacion}} " type="text" style="border: none;outline: none;background-color: white" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v" value="{{ $dias_vacaciones }}" required autocomplete="dias_v">
+        <input id="dias_v_a" value="{{$VacacionForm->user->perfiles->dias_vacacion}} " type="text" style="border: none;outline: none;background-color: white" class="form-control @error('dias_v') is-invalid @enderror" value="{{ $dias_vacaciones }}" required autocomplete="dias_v" disabled>
         @error('dias_v')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -241,7 +241,7 @@
 
       <div class="col-md-1">
         <input id="saldo_dias" name="saldo_dias" type="text" class="form-control @error('dias') is-invalid @enderror d-none" value="{{ $VacacionForm->saldo_dias }}" required autocomplete="saldo_dias">
-        <input id="saldo_dias_a" type="text"  style="border: none;outline: none;background-color: white"  class="form-control @error('dias') is-invalid @enderror" value="{{ $VacacionForm->saldo_dias }}" required autocomplete="saldo_dias" disabled>
+        <input id="saldo_dias_a" name="saldo_dias11" type="text"  style="border: none;outline: none;background-color: white"  class="form-control @error('dias') is-invalid @enderror" value="{{ $VacacionForm->saldo_dias }}" required autocomplete="saldo_dias" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>

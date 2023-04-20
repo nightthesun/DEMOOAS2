@@ -218,8 +218,8 @@
           </div>
           <label for="dias_vacacion" class="col-3 col-form-label">{{ __('Dias de Vacacion a la fecha') }}</label>
           <div class="col-md-3">
-            <input id="dias_vacacion_a" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" disabled>
-            <input id="dias_vacacion" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror d-none" name="dias_vacacion" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" autofocus>
+            <input id="dias_vacacion_a" type="" class="form-control @error('dias_vacacion') is-invalid @enderror" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" disabled>
+            <input id="dias_vacacion" type="" class="form-control @error('dias_vacacion') is-invalid @enderror d-none" name="dias_vacacion" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" autofocus>
             @error('dias_vacacion')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>

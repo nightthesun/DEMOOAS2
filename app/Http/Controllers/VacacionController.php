@@ -62,7 +62,7 @@ class VacacionController extends Controller
     return view("forms.vacaciones", compact('dias_vacaciones', 'dias_tomados'));
   }
 
-  public function estadoForm($id)
+  public function estadoForm(Request $request,$id)
   {
     $VacacionForm = VacacionForm::find($id);
     // dd($VacacionForm->user->perfiles->nombre);
@@ -73,6 +73,16 @@ class VacacionController extends Controller
     $query_tomados = 'SELECT ((SELECT CASE WHEN SUM(dias) IS null THEN 0 ELSE SUM(dias) END FROM vacacion_forms WHERE user_id = ' . $VacacionForm->user_id . ' AND estado = "Aceptada") +
     (SELECT CASE WHEN SUM(dias) IS null THEN 0 ELSE SUM(dias) END FROM licencia_forms WHERE user_id = ' .   $VacacionForm->user_id . ' AND estado = "Aceptada")) as suma';
     $dias_tomados = DB::select($query_tomados);
+
+    $validador=$request->get('estado');
+    if ($validador=="Aceptada") {
+      $var1=$request->get('saldo_dias11');
+      $var4=$request->get('ci');
+      DB::table('perfils')
+      ->where('ci', $var4)
+      ->update(['dias_vacacion' => $var1]);
+    } 
+
     return view('forms.vacaciones_detalle', compact('dias_vacaciones', 'dias_tomados'))->with('VacacionForm', $VacacionForm);
   }
 

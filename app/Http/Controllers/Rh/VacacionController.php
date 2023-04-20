@@ -8,6 +8,7 @@ use App\VacacionForm;
 use App\Firma;
 use Illuminate\Http\Request;
 use Convertidor;
+use DB;
 
 
 class VacacionController extends Controller
@@ -44,6 +45,9 @@ class VacacionController extends Controller
         $user = Auth::user()->dias_vacacion;
         $numero=$user;
         $dias = Convertidor::numtoLetras($numero);
+
+       
+ 
         return view("forms.vacaciones", compact('dias'));            
     }
 
@@ -67,6 +71,8 @@ class VacacionController extends Controller
             'saldo_dias_l'=>$request->saldo_dias_l,
             'user_id'=>Auth::user()->id,
         ]);
+     
+
         return redirect()->route('inicio')->with('success','El formulario se envio correctamente');
     }
 
@@ -188,4 +194,5 @@ class VacacionController extends Controller
         $pdf = \PDF::setPaper('letter')->loadView('pdf.vacaciones', compact('form', 'firma', 'firma_rrhh'));
         return $pdf->stream('archivo.pdf');
     }
+
 }

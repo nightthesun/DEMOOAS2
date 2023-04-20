@@ -151,41 +151,6 @@
 
 
 
-              <!--
-               <option value="Jefe" @if($perfil->cargo == 'Jefe')
-                selected @endif>Jefe</option>
-
-              <option value="Personal" @if($perfil->cargo == 'Personal') selected @endif>Personal</option>
-
-
-              <option value="Vendedor" @if($perfil->cargo == 'Vendedor') selected @endif>Vendedor</option>
-
-              <option value="Preventista" @if($perfil->cargo == 'Preventista') selected @endif>Preventista</option>
-
-              <option value="Jefe de tienda" @if($perfil->cargo == 'Jefe de tienda') selected @endif>Jefe de tienda</option>
-
-              <option value="Jefe de ventas" @if($perfil->cargo == 'Jefe de ventas') selected @endif>Jefe de ventas</option>
-
-              <option value="Jefe de sistemas" @if($perfil->cargo == 'Jefe de sistemas') selected @endif>Jefe de sistemas</option>
-
-              <option value="Gerente administrativo" @if($perfil->cargo == 'Gerente administrativo') selected @endif>Gerente administrativo</option>
-
-              <option value="Gerente comercial" @if($perfil->cargo == 'Gerente comercial') selected @endif>Gerente comercial</option>
-
-              <option value="Encargado de logistica" @if($perfil->cargo == 'Encargado de logistica') selected @endif>Encargado de logistica</option>
-
-              <option value="Encargado de sistemas" @if($perfil->cargo == 'Encargado de sistemas') selected @endif>Encargado de sistemas</option>
-
-              <option value="Vendedor institucional" @if($perfil->cargo == 'Vendedor institucional') selected @endif>Vendedor institucional</option>
-
-              <option value="Vendedor mayorista" @if($perfil->cargo == 'Vendedor mayorista') selected @endif>Vendedor mayorista</option>
-
-              <option value="Distribuidor" @if($perfil->cargo == 'Distribuidor') selected @endif>Distribuidor</option>
-            </select>
-              
-              
-              
-              -->
              
           </div>
           <label for="corp_email" class="col-2 col-form-label">
@@ -258,7 +223,7 @@
           <label for="dias_vacacion" class="col-3 col-form-label">{{ __('Dias de Vacacion a la fecha') }}</label>
           <div class="col-md-3">
             <input id="dias_vacacion_a" style="border: none; outset:none; background-color: white" value="{{$perfil->dias_vacacion}}" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" disabled>
-            <input id="dias_vacacion" value="{{$perfil->dias_vacacion}}" type="number" class="form-control @error('dias_vacacion') is-invalid @enderror d-none" name="dias_vacacion" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" autofocus>
+            <input id="dias_vacacion" value="{{$perfil->dias_vacacion}}" type="" class="form-control @error('dias_vacacion') is-invalid @enderror d-none" name="dias_vacacion" value="{{ old('dias_vacacion') }}" autocomplete="dias_vacacion" autofocus>
             @error('dias_vacacion')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>

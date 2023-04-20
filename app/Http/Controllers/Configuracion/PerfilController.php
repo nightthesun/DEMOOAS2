@@ -139,8 +139,10 @@ class PerfilController extends Controller
       $dias_tomados = DB::select($query_tomados);
       
       $query_cargos = 'SELECT * FROM `cargos` ORDER BY NombreCargo';
+     // $perfilesX='SELECT * FROM `perfiles` ORDER BY nombre';
       $cargos = DB::select($query_cargos);
       $perfil = Perfil::find($id);
+     // $perfilesX2=DB::select($perfilesX);
 
       // dd($query_tomados);
       return view('configuracion.perfiles.edit', compact('perfil', 'dias_tomados','cargos'));
@@ -175,6 +177,7 @@ class PerfilController extends Controller
         'saldo_dias_l' => ' ',
         'estado' => 'Aceptada',
         'user_id' => $perfil->user_id,
+        
       ]);
     }
     // dd($vacacion);

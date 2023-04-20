@@ -55,7 +55,8 @@
         @enderror
       </div>
     </div>
-
+    
+    <h1></h1>
     <div class="form-group row">
       <label for="area" class="col-md-2 col-form-label text-md-right">
         {{ __('UNIDAD') }}
@@ -127,8 +128,8 @@
       </label>
 
       <div class="col-md-1">
-        <input id="dias_v" style="border: none;outline: mone; background-color: white" type="text" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v" value="{{ $dias_vacaciones }}" required autocomplete="dias_v">
-        <input id="dias_v_a" style="border: none;outline: mone; background-color: white" type="text" class="form-control @error('dias_v') is-invalid @enderror" value="{{ $dias_vacaciones }}" required autocomplete="dias_v" disabled>
+        <input id="dias_v" value="{{Auth::user()->perfiles->dias_vacacion}}"   style="border: none;outline: mone; background-color: white" type="text" class="form-control @error('dias_v') is-invalid @enderror d-none" name="dias_v" value="{{ $dias_vacaciones }}" required autocomplete="dias_v">
+        <input id="dias_v_a" value="{{Auth::user()->perfiles->dias_vacacion}}"    style="border: none;outline: mone; background-color: white" type="text" class="form-control @error('dias_v') is-invalid @enderror" value="{{ $dias_vacaciones }}" required autocomplete="dias_v" disabled>
         @error('dias_v')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -152,8 +153,8 @@
       </label>
 
       <div class="col-md-1">
-        <input id="dias_tomados" style="border: none;outline: mone; background-color: white" name="dias_tomados" type="text" class="form-control @error('dias') is-invalid @enderror d-none" value="@if ($dias_tomados[0]->suma != 0) {{ $dias_tomados[0]->suma }} @else 0 @endif" required autocomplete="dias_tomados">
-        <input id="dias_tomados_a" style="border: none;outline: mone; background-color: white" type="text" class="form-control @error('dias') is-invalid @enderror" value="{{ $dias_tomados[0]->suma }}" required autocomplete="dias_tomados" disabled>
+        <input id="dias_tomados"  style="border: none;outline: mone; background-color: white" name="dias_tomados" type="text" class="form-control @error('dias') is-invalid @enderror d-none" value="@if ($dias_tomados[0]->suma != 0) {{ $dias_tomados[0]->suma }} @else 0 @endif" required autocomplete="dias_tomados">
+        <input id="dias_tomados_a"  style="border: none;outline: mone; background-color: white" type="text" class="form-control @error('dias') is-invalid @enderror" value="{{ $dias_tomados[0]->suma }}" required autocomplete="dias_tomados" disabled>
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -176,7 +177,7 @@
       </label>
 
       <div class="col-md-1">
-        <input id="dias" type="text" class="form-control @error('dias') is-invalid @enderror" name="dias" value="{{ old('dias') }}" required autocomplete="dias">
+        <input id="dias" type="text"  style="border: none;outline: mone; background-color: white" class="form-control @error('dias') is-invalid @enderror" name="dias" value="{{ old('dias') }}" required autocomplete="dias" >
         @error('dias')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message }}</strong>
@@ -279,35 +280,57 @@ var fecha2 = new Date(fechaEnTextoS);
 
 // Obtener el año, el mes y el día de la fecha
 var anio2 = fecha2.getFullYear();
-var mes2 = fecha2.getMonth() + 1; // Ten en cuenta que el método getMonth() devuelve un valor de 0 a 11, por lo que debes sumarle 1 para obtener el mes correcto.
+var mes2 = fecha2.getMonth() + 1; 
 var dia2 = fecha2.getDate() +1 ;
 
 
 
 // Obtener el año, el mes y el día de la fecha
 var anio1 = fecha1.getFullYear();
-var mes1 = fecha1.getMonth() + 1; // Ten en cuenta que el método getMonth() devuelve un valor de 0 a 11, por lo que debes sumarle 1 para obtener el mes correcto.
+var mes1 = fecha1.getMonth() + 1; 
 var dia1 = fecha1.getDate() +1 ;
 ///////////////////////////////////////////operaciones para obtener el calendario //////
 var moth1Array=ArrayMes(mes1);
-var moth2=ArrayUltimoDia(mes1);
+var ultiDay1=ArrayUltimoDia(mes1);
+var moth2Array=ArrayMes(mes2);
+var ultiDay2=ArrayUltimoDia(mes2);
+console.log("datods----: "+ moth1Array + "moth2 :"+ultiDay1);
+
+var operacionMes=diferenciaMes(mes2,mes1);
+
 // Restar las fechas en milisegundos y convertir el resultado en días
 var resultadoEnDias = Math.round((fecha1.getTime() - fecha2.getTime()) / (1000 * 60 * 60 * 24));
 
+if (operacionMes==0) {
+  if (dia1<dia2) {
+    window.alert('Error detectado, no puede ingresar fechas menores al retorno. ');
+    window.location.reload();
+  }
+}
+if (mes1<mes2 ) {
+    window.alert('Error detectado, no puede ingresar fechas menores al retorno. ');
+    window.location.reload();
+} else {
 
-var operacionFinal1= operaciones(moth1Array,dia2,dia1,resultadoEnDias);
+console.log("diferencia entre meses positivo "+ operacionMes);
+var operacionFinal1= operaciones(moth1Array,dia2,dia1,resultadoEnDias,operacionMes,mes1,ultiDay1,ultiDay2);
+$("#dias").val(operacionFinal1);
+
 console.log(moth1Array);
-console.log("ultimo dia" + moth2);
+
 console.log("La fecha de hoy es " + resultadoEnDias);
 
 console.log("resultado: " +operacionFinal1 );
+console.log("diferencia entre meses "+ operacionMes);
+}
+
 });
 
 
 
 
 
-  document.getElementById("dias").addEventListener("keyup", function(e) {
+  document.getElementById("fecha_ret").addEventListener("input", function(e) {
     var letras = NumeroALetras(this.value);
     var val1 = $("#dias_v").val();
     var val2 = $("#dias_tomados").val();
@@ -321,7 +344,7 @@ console.log("resultado: " +operacionFinal1 );
     $("#saldo_dias").val(parseInt(val1) - parseInt(val2) - parseInt(val3));
     $("#saldo_dias_a").val(parseInt(val1) - parseInt(val2) - parseInt(val3));
   });
-  document.getElementById("dias").addEventListener("keyup", function(e) {
+  document.getElementById("fecha_ret").addEventListener("input", function(e) {
     var valor1 = $("#dias_v").val();
     var letras1 = NumeroALetras(valor1);
     var valor2 = $("#dias").val();
@@ -351,18 +374,21 @@ console.log("resultado: " +operacionFinal1 );
   var marzo = [3, 5, 12, 19, 26];
   var abril = [4, 2, 7, 9,16,23,30];
   var mayo = [5,1,7,14,21,28];
+  var junio = [6,4,8,11,18,21,25];
 
 switch (dato) {
   case enero[0]:
-    return enero;
+    return enero=[2, 8, 15, 23,29];
   case febrero[0]:
-    return febrero ;  
+    return febrero =[4, 5, 12, 19,20,21,26];
   case marzo[0]:
-    return marzo;  
+    return marzo=[ 5, 12, 19, 26];
   case abril[0]:
     return abril= [2, 7, 9,16,23,30];
   case mayo[0]:
-    return mayo; 
+    return mayo= [1,7,14,21,28];
+  case junio[0]:
+    return junio= [4,8,11,18,21,25];
    
   default:
     break;
@@ -408,39 +434,77 @@ switch (dato) {
 }
   
  }
-function operaciones(ArrayM,diaI1,diaF1,diaOperacion) {
+
+///para sacar diferencia de meses 
+function diferenciaMes(mesini, mesfini){
+ 
+    var totalX=mesfini-mesini;
+  return totalX;
+
+   
+}
+
+//operaciones
+
+function operaciones(ArrayM,diaI1,diaF1,diaOperacion,mesDif,mes11,diafinal,diafinal1) {
 console.log("dato1 "+ ArrayM + "dato2 "+diaI1+"dato3 "+diaF1+"dato4 "+diaOperacion);
   var ini=0;
-  var op=0;  
-while (diaI1<=diaF1) {
+  var ini2=0;
+  var op=0;
+  var axu;
+  var bandera=0;  
+  var diaFF=diaF1;
+while(bandera<=mesDif){
+  var datomesx=ArrayMes(mes11);
   
+if (bandera==0&& mesDif==0) {
+  diaFF=diaF1;
   
+} 
+if (bandera==0 &&mesDif==1) {
+  diaFF=diafinal1;
+}
+if (bandera==1 && mesDif==1) {
+  diaFF=diaF1;
+  diaI1=1;
+}
+
+while (diaI1<=diaFF) {
+  
+ 
+
+  let incluyeVeinte = datomesx.includes(diaI1);
+    
+  if (incluyeVeinte==true&&bandera==0)  {
+    ini=ini+1;
+    console.log("console1"+incluyeVeinte) // true
+  }
+  if (incluyeVeinte==true&&bandera==1)  {
+    ini2=ini2+1;
+    console.log("console2"+incluyeVeinte) // true
+  }
+    diaI1=diaI1+1;
+  }
+
 
   
-  if (ArrayM.indexOf(diaI1)!==-1) {
-    ini=ini+1;
-  } 
-  diaI1=diaI1+1;
+  
+  
+  console.log("dato familiar: "+op);
+
+
+  diaI1++;
+  bandera++;
 }
+ini=ini+ini2;
 op=diaOperacion-ini;
 
+console.log("op: "+op);
 
-console.log("dato familiar: "+op);
+ini=0;
 
-
-
-
-var miArray = [1, 2, 3, 4, 3, 5];
-var elementoBuscado = 3;
-var indice = -1;
-var contador = 0;
-
-while ((indice = miArray.indexOf(elementoBuscado, indice + 1)) !== -1) {
-  contador++;
-}
-
-console.log("El elemento", elementoBuscado, "aparece", contador, "veces en el array.");
-
+   bandera=0;  
+  diaFF=0;
 return  op;
 }
   function Unidades(num) {
