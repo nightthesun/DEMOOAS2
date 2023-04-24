@@ -59,7 +59,11 @@ class VacacionController extends Controller
     $query_tomados = 'SELECT ((SELECT CASE WHEN SUM(dias) IS null THEN 0 ELSE SUM(dias) END FROM vacacion_forms WHERE user_id = ' . Auth::user()->id . ' AND estado = "Aceptada") +
     (SELECT CASE WHEN SUM(dias) IS null THEN 0 ELSE SUM(dias) END FROM licencia_forms WHERE user_id = ' . Auth::user()->id . ' AND estado = "Aceptada")) as suma';
     $dias_tomados = DB::select($query_tomados);
-    return view("forms.vacaciones", compact('dias_vacaciones', 'dias_tomados'));
+
+    $query_jefes = "SELECT * FROM perfils WHERE cargo LIKE 'JEFE%' OR cargo LIKE 'GERENTE%'";
+    $jefes = DB::select($query_jefes);
+
+    return view("forms.vacaciones", compact('dias_vacaciones', 'dias_tomados','jefes'));
   }
 
   public function estadoForm(Request $request,$id)
@@ -73,7 +77,8 @@ class VacacionController extends Controller
     $query_tomados = 'SELECT ((SELECT CASE WHEN SUM(dias) IS null THEN 0 ELSE SUM(dias) END FROM vacacion_forms WHERE user_id = ' . $VacacionForm->user_id . ' AND estado = "Aceptada") +
     (SELECT CASE WHEN SUM(dias) IS null THEN 0 ELSE SUM(dias) END FROM licencia_forms WHERE user_id = ' .   $VacacionForm->user_id . ' AND estado = "Aceptada")) as suma';
     $dias_tomados = DB::select($query_tomados);
-
+    $query_jefes = "SELECT * FROM perfils WHERE cargo LIKE 'JEFE%' OR cargo LIKE 'GERENTE%'";
+    $jefes = DB::select($query_jefes);
     $validador=$request->get('estado');
     if ($validador=="Aceptada") {
       $var1=$request->get('saldo_dias11');
@@ -83,7 +88,7 @@ class VacacionController extends Controller
       ->update(['dias_vacacion' => $var1]);
     } 
 
-    return view('forms.vacaciones_detalle', compact('dias_vacaciones', 'dias_tomados'))->with('VacacionForm', $VacacionForm);
+    return view('forms.vacaciones_detalle', compact('dias_vacaciones', 'dias_tomados','jefes'))->with('VacacionForm', $VacacionForm);
   }
 
   public function estado(Request $request, $id)

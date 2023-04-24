@@ -225,10 +225,11 @@
       <div class="col-md-4">
         <select name="jefe" id="jefe" class="form-control" required>
           <option value="" disabled selected>Seleccione Inmediato Superior</option>
-          @foreach(App\Perfil::orderBy('nombre')->get(); as $u)
-          @if (strpos($u->cargo,'JEFE') == 0 && $u->area_id != 3)
-          <option value="{{$u->user_id}}">{{$u->nombre}} {{$u->paterno}} {{$u->materno}}</option>
-          @endif
+          
+          @foreach($jefes as $j)
+          
+          <option value="{{$j->user_id}}">{{$j->nombre}} {{$j->paterno}} {{$j->materno}}</option>
+         
           @endforeach
         </select>
       </div>
@@ -294,6 +295,9 @@ var moth1Array=ArrayMes(mes1);
 var ultiDay1=ArrayUltimoDia(mes1);
 var moth2Array=ArrayMes(mes2);
 var ultiDay2=ArrayUltimoDia(mes2);
+
+var sabado1=ArraySabados(mes1);
+var sabado2=ArraySabados(mes2);
 console.log("datods----: "+ moth1Array + "moth2 :"+ultiDay1);
 
 var operacionMes=diferenciaMes(mes2,mes1);
@@ -312,16 +316,14 @@ if (mes1<mes2 ) {
     window.location.reload();
 } else {
 
-console.log("diferencia entre meses positivo "+ operacionMes);
-var operacionFinal1= operaciones(moth1Array,dia2,dia1,resultadoEnDias,operacionMes,mes1,ultiDay1,ultiDay2);
+
+var operacionFinal1= operaciones(moth1Array,dia2,dia1,resultadoEnDias,operacionMes,mes1,ultiDay1,ultiDay2,sabado1,sabado2);
 $("#dias").val(operacionFinal1);
 
-console.log(moth1Array);
 
 console.log("La fecha de hoy es " + resultadoEnDias);
 
-console.log("resultado: " +operacionFinal1 );
-console.log("diferencia entre meses "+ operacionMes);
+
 }
 
 });
@@ -367,9 +369,36 @@ console.log("diferencia entre meses "+ operacionMes);
     $("#dias_l_a").val(letras2);
     $("#dias_tomados_l_a").val(letras3);
   });
+
+  function ArraySabados(dato){
+    var enero = [1, 7, 14, 21,28];
+  var febrero = [2, 4,11,18,25 ];
+  var marzo = [3, 4,11,18,25];
+  var abril = [4, 1,8,15,22,29];
+  var mayo = [5,6,13,20,27];
+  var junio = [6,2,9,16,23,30];
+
+switch (dato) {
+  case enero[0]:
+    return enero=[7, 14, 21,28];
+  case febrero[0]:
+    return febrero =[4,11,18,25 ];
+  case marzo[0]:
+    return marzo=[ 4,11,18,25];
+  case abril[0]:
+    return abril= [1,8,15,22,29];
+  case mayo[0]:
+    return mayo= [6,13,20,27];
+  case junio[0]:
+    return junio= [2,9,16,23,30];
    
+  default:
+    break;
+}
+  }
+
  function ArrayMes(dato){
-  var enero = [1, 2, 8, 15, 23,29];
+  var enero = [1, 1,2, 8, 15, 22,23,29];
   var febrero = [2, 4, 5, 12, 19,20,21,26];
   var marzo = [3, 5, 12, 19, 26];
   var abril = [4, 2, 7, 9,16,23,30];
@@ -378,9 +407,9 @@ console.log("diferencia entre meses "+ operacionMes);
 
 switch (dato) {
   case enero[0]:
-    return enero=[2, 8, 15, 23,29];
+    return enero=[1,2, 8, 15, 22,23,29];
   case febrero[0]:
-    return febrero =[4, 5, 12, 19,20,21,26];
+    return febrero =[ 5, 12, 19,20,21,26];
   case marzo[0]:
     return marzo=[ 5, 12, 19, 26];
   case abril[0]:
@@ -447,19 +476,32 @@ function diferenciaMes(mesini, mesfini){
 //operaciones
 
 function operaciones(ArrayM,diaI1,diaF1,diaOperacion,mesDif,mes11,diafinal,diafinal1) {
-console.log("dato1 "+ ArrayM + "dato2 "+diaI1+"dato3 "+diaF1+"dato4 "+diaOperacion);
-  var ini=0;
+console.log("dato1 "+ ArrayM + "dato2 "+diaI1+"dato3 "+diaF1+"dato4 "+diaOperacion +"mes diferencia "+mesDif+ " dsdd "  +mes11 +" - "+diafinal+"  -  "+diafinal1+" - ");
+console.log("**********************************"); 
+
+var ini=0;
   var ini2=0;
+  var ini3=0;
+  var ini4=0;
   var op=0;
   var axu;
   var bandera=0;  
+  diaF1=diaF1-1
   var diaFF=diaF1;
+  var controlador =mes11;
+
+ if (mesDif>=1) {
+  controlador=controlador-1;
+ }
 while(bandera<=mesDif){
-  var datomesx=ArrayMes(mes11);
+  console.log(controlador);
+  var datomesx=ArrayMes(controlador);
+  var datosabadox=ArraySabados(controlador);
+
+
   
 if (bandera==0&& mesDif==0) {
-  diaFF=diaF1;
-  
+  diaFF=diaF1;  
 } 
 if (bandera==0 &&mesDif==1) {
   diaFF=diafinal1;
@@ -468,20 +510,32 @@ if (bandera==1 && mesDif==1) {
   diaFF=diaF1;
   diaI1=1;
 }
-
+console.log("---------------------------------------------------------");
+ console.log("matriz1: "+datomesx+" matriz2: "+datosabadox);
 while (diaI1<=diaFF) {
-  
- 
+   
+    console.log("dias:_"+diaI1);
 
   let incluyeVeinte = datomesx.includes(diaI1);
+  let incluyeVeinte2 = datosabadox.includes(diaI1);
+ 
+  if (incluyeVeinte2==true&&bandera==0) {
+    ini3=ini3+0.5;
+ 
+  }
+  if (incluyeVeinte2==true&&bandera==1)  {
+    ini4=ini4+0.5;
+  
     
+  }
+
   if (incluyeVeinte==true&&bandera==0)  {
     ini=ini+1;
-    console.log("console1"+incluyeVeinte) // true
+
   }
   if (incluyeVeinte==true&&bandera==1)  {
     ini2=ini2+1;
-    console.log("console2"+incluyeVeinte) // true
+
   }
     diaI1=diaI1+1;
   }
@@ -490,19 +544,23 @@ while (diaI1<=diaFF) {
   
   
   
-  console.log("dato familiar: "+op);
+  console.log("ini1 "+ini+" ini2 "+ini2+"  ini3 "+ini3+" ini4 "+ini4 );
 
 
-  diaI1++;
+  
   bandera++;
+  controlador=controlador+1;
 }
-ini=ini+ini2;
+ini=ini+ini2+ini3+ini4;
+
 op=diaOperacion-ini;
 
-console.log("op: "+op);
+console.log("dias: "+diaOperacion+"  ini: "+ini+" resultado: "+op  );
 
 ini=0;
-
+ini2=0;
+ini3=0;
+ini4=0;
    bandera=0;  
   diaFF=0;
 return  op;
