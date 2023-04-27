@@ -30,6 +30,7 @@
         <div class="container border rounded">
           <div class="row text-center my-3">
             <h5 class="text-primary">REPORTE DE STOCK ACTUAL</h5>
+            <h5 class="text-primary">REPORTE DE STOCK ACTUAL</h5>
           </div>
           <div class="mb-2 row d-flex justify-content-center">
             <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm text-right">Al:</label>
